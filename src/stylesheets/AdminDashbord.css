@@ -1,0 +1,184 @@
+
+#greetingsCol{
+    text-align:left;
+    margin-top:20px;
+    
+}
+#greetingsCol h1{
+    font-size:36px;
+}
+.card{
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top:10px ;
+}
+#cardRow1{
+    margin-top:12px;
+}
+h5{
+    text-align:left;
+    font-size:22px;
+}
+#card1{
+    text-align:left;
+}
+
+#card1 i{
+    font-size:42px;
+    margin-bottom:25px;
+    color:#1fb4da;
+}
+#card1:hover{
+    box-shadow: rgb(24, 200, 206) 0px 5px 15px;
+}
+
+#card2{
+    text-align:left;
+}
+#card2 i{
+    font-size:42px;
+    margin-bottom:25px;
+    color:#7033e0;
+}
+#card2:hover{
+    box-shadow: rgb(90, 60, 173) 0px 5px 15px;
+}
+
+#card3{
+    text-align:left;
+}
+#card3 i{
+    font-size:42px;
+    margin-bottom:25px;
+    color:#329629;
+}
+#card3:hover{
+    box-shadow: rgb(18, 158, 48) 0px 5px 15px;
+}
+
+#card4{
+    text-align:left;
+}
+#card4 i{
+    font-size:42px;
+    margin-bottom:25px;
+    color:#a735a7;
+}
+#card4:hover{
+    box-shadow: rgb(158, 18, 158) 0px 5px 15px;
+}
+
+#card5{
+    text-align:left;
+}
+#card5 i{
+    font-size:42px;
+    margin-bottom:25px;
+    color:#cadf0d;
+}
+#card5:hover{
+    box-shadow: rgb(251, 255, 0) 0px 5px 15px;
+}
+
+#card6{
+    text-align:left;
+}
+#card6 i{
+    font-size:42px;
+    margin-bottom:25px;
+    color:#d36600;
+}
+#card6:hover{
+    box-shadow: rgb(243, 132, 6) 0px 5px 15px;
+}
+
+#card7{
+    text-align:left;
+}
+#card7 i{
+    font-size:42px;
+    margin-bottom:25px;
+    color:#c02323;
+}
+#card7:hover{
+    box-shadow: rgb(243, 6, 6) 0px 5px 15px;
+}
+#cardRow2{
+    margin-top:10px;
+}
+
+
+
+
+
+#row3{
+    margin-top:30px;
+}
+/* .table{
+    border-bottom: rgb(255, 255, 255);
+}
+#table-header{
+    border-bottom: rgb(255, 255, 255);
+} */
+#status_data{
+    text-align:center;
+}
+#status{
+    /* margin-top: 10px; */
+    margin-left: 70px;
+    margin-right: -40px;
+    height: 26px;
+    width: 70px;
+    border-radius: 10px;
+    color: #fff;
+    background-color:#329629;
+}
+#status_inactive{
+    margin-left: 70px;
+    margin-right: -40px;
+    height: 26px;
+    width: 70px;
+    border-radius: 10px;
+    color: #fff;
+    background-color:#9c1717;
+}
+#edit{
+    font-size:22px;
+    padding:5px;
+}
+#icon{
+    text-align:center;
+}
+#bars{
+    margin-right: 1px;
+    border-radius: 100%;
+    padding-top:9px;
+    padding-right:11px;
+    padding-left:11px;
+    padding-bottom:9px;
+    font-size:18px;
+    color: rgb(255, 255, 255);
+    background-color:rgb(29, 146, 131);
+}
+#bars:hover{
+    background-color:rgb(214, 104, 14);
+}
+#edit{
+    margin-left: 20px;
+    font-size:20px;
+    border-radius: 50px;
+    padding-top:9px;
+    padding-right:6px;
+    padding-left:12px;
+    padding-bottom:9px;
+    color: rgb(255, 255, 255);
+    background-color: #0d2192;
+}
+#edit:hover{
+    background-color:rgb(214, 104, 14);
+}
+
+#ClassScheduleRow{
+    margin-top:30px;
+    margin-bottom:30px;
+}

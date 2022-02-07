@@ -1,0 +1,62 @@
+#SaidbarStudent{
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+    height: 105rem;  
+}
+.list-group{
+    margin-top: 10px;
+}
+.list-group-item{
+    text-align: left;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+    border-radius: -10px;
+    border: none;
+    margin-bottom: 5px;
+    /* border-bottom: 1px solid rgb(199, 199, 199); */
+}
+.list-group-item:hover{
+    /* background-color:rgb(155, 128, 219); */
+    background-color:rgb(72, 70, 77);
+    color:#fff;
+}
+.list-group-item i{
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+
+#drop-item{
+    border:none;
+    text-align: right;
+}
+#flush-headingDrop{
+
+    height: 40px;
+    color: #fff;
+}
+#flush-headingDrop i{
+    font-size: 16px;
+    margin-left: -4px;
+    margin-right: 20px;
+}
+
+#flush-heading{
+    color: #fff;
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+    height: 40px;
+}
+#flush-heading:hover{
+    /* background-color:rgb(155, 128, 219); */
+    background-color:rgb(72, 70, 77);
+    color:#fff; 
+}
+#flush-collapseDrop{
+    border:none;
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+}

@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+#drop-item{
+    border:none;
+    text-align: right;
+}
+#flush-headingDrop{
+
+    height: 40px;
+    color: #fff;
+}
+#flush-headingDrop i{
+    font-size: 16px;
+    margin-left: -4px;
+    margin-right: 20px;
+}
+
+#flush-headingg{
+    color: #fff;
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+    height: 40px;
+}
+#flush-headingg:hover{
+    /* background-color:rgb(155, 128, 219); */
+    background-color: rgb(49, 45, 59);
+    color:#fff; 
+}
+#flush-collapseStudentDrop{
+    border:none;
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+}

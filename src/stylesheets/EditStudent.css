@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Roboto:wght@700&display=swap');
+
+#edit_student_heading{
+    background-color: rgb(236, 236, 236);
+    padding: 6px;
+}
+#edit_student_heading h5{
+    font-size:24px;
+    color: rgb(56, 50, 50);
+    margin-top: 5px;
+}
+#edit_heading_btn{
+    text-align: right;
+    margin-top: 5px;
+}
+#edit_heading_btn button{
+    font-size:14px;
+    color: rgb(255, 255, 255);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* background-color:rgb(9, 136, 51); */
+    background-color: #0EAB58;
+    border: none;
+}
+#edit_heading_btn button:hover{
+    background-color:rgb(84, 150, 90);
+}
+#edit_student_form label{
+    font-size:26px;
+    font-family: 'Dongle', sans-serif;
+}
+#edit_student_form{
+    margin:30px;
+    
+}
+/* #inputAddress11{
+    font-size:14px;
+    
+}
+#Gender{
+    font-size:14px;
+} */
