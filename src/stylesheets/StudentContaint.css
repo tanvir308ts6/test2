@@ -16,7 +16,8 @@
     margin-top: 1px;
     color: #fff;
     height: 8rem;
-    background-color: #1b87df;
+    /* background-image: linear-gradient( 109.6deg,  rgba(102, 33, 206, 0.897) 11.5%, rgba(119,44,232,1) 91.2% ); */
+    background-image: linear-gradient( 109.6deg,  rgba(102,203,149,1) 11.2%, rgba(39,210,175,1) 98.7% );
     border:none;
     border-radius:0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -39,7 +40,7 @@
     margin-top: 1px;
     color: #fff;
     height: 8rem;
-    background-color: #27cf67;
+    background-image: linear-gradient( 117deg,  rgb(99, 189, 75) 39.2%, rgb(185, 235, 119) 156.2% );
     border:none;
     border-radius:0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -62,7 +63,7 @@
     margin-top: 1px;
     color: #fff;
     height: 8rem;
-    background-color: #e09321;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(214, 161, 0) 0%, rgba(255,145,83,1) 90% );
     border:none;
     border-radius:0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -86,7 +87,7 @@
     margin-top: 1px;
     color: #fff;
     height: 8rem;
-    background-color: #b34141;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(205,33,42,1) 0%, rgba(236,95,5,1) 90% );
     border:none;
     border-radius:0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -277,14 +278,14 @@
   
     #bar-graph tbody .before {
       color: #fff;
-        background-color: #4C2E94;
+      background-image: linear-gradient( 109.6deg,  rgb(123, 28, 136) 3.6%, rgba(77,58,151,1) 51%, rgba(126, 84, 136) 92.9% );
         border-color: transparent;
         left: 20px;
     }
   
     #bar-graph tbody .after {
       color: #fff;
-        background-color: #7859C2;
+      background-image: linear-gradient( 109.6deg,  rgba(123, 28, 136) 3.6%, rgba(77,58,151,1) 51%, rgb(126, 84, 136) 92.9% );
         border-color: transparent;
         left: 75px;
     }
@@ -301,13 +302,13 @@
     }
   
     #bar-ticks .tick {
-        border-bottom: 1px solid #321bb8;
+        border-bottom: 1px solid #ffffff;
         height: 59px;
         position: relative;
         width: 100%;
     }
     #bar-ticks .tick:first-child {
-        border-top: 1px solid #321bb8;
+        border-top: 1px solid #ffffff;
     }
     #bar-ticks .tick:last-child {
         border: 0;
@@ -343,6 +344,10 @@
 
 #NoticeBordCard{
   height: 80px;
+  margin-top:-10px;
+  margin-bottom:10px;
+  box-shadow: none;
+  border-bottom: 1px solid rgb(192, 192, 192);
 }
 
 #NoticeBody{

@@ -13,6 +13,9 @@ import UserRoalConfig from './Components/UserRoalConfig';
 import AdminTaskList from './Components/AdminTaskList';
 import Notice from './Components/Notice';
 import AddStudent from './Components/AddStudent';
+import AddNotice from './Components/AddNotice';
+import StudentNoticeBord from './Components/StudentNoticeBord';
+import TeacherList from './Components/TeacherList';
 
 
 
@@ -31,10 +34,13 @@ function App() {
           <Route exact path="/StudentList" element={<StudentList/>} />
           <Route exact path="/AdminExam" element={<AdminExam/>} />
           <Route exact path="/UserRoalConfig" element={<UserRoalConfig/>} />
-          <Route exact path="/EditStudent" element={<EditStudent/>} />
+          <Route exact path="/EditStudent/:id" element={<EditStudent/>} />
           <Route exact path="/AdminTaskList" element={<AdminTaskList/>} />
           <Route exact path="/notice" element={<Notice/>} />
           <Route exact path="/AddStudent" element={<AddStudent/>} />
+          <Route exact path="/AddNotice" element={<AddNotice/>} />
+          <Route exact path="/StudentNoticeBord" element={<StudentNoticeBord/>}/>
+          <Route exact path="/TeacherList" element={<TeacherList/>}/>
         </Routes>
       </Router>
     </div>

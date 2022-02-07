@@ -7,24 +7,37 @@ import '../stylesheets/AdminSidebar.css';
 function AdminSidebar() {
     return (
         <div className="row">
-            <div className="col-md-12" id="SaidbarStudent">
+            <div className="col-md-12" id="SaidbarStudentAdmin">
                 <ul className="list-group">
                     <Link className="list-group-item" to="/AdminDashbord" ><i class="fas fa-home"></i>Dashboard</Link>
                     <div className="accordion-item" id="drop-item">
                         <h2 className="accordion-header" id="flush-headingDrop">
                             <button className="accordion-button collapsed" id="flush-heading" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseStudentDrop" aria-expanded="false" aria-controls="flush-collapseStudentDrop">
-                                <i class="fas fa-user-graduate"></i> Student 
+                                <i class="fas fa-user-graduate"></i> Student
                             </button>
                         </h2>
                         <div id="flush-collapseStudentDrop" className="collapse" aria-labelledby="flush-headingDrop" data-bs-parent="#accordionFlushExample">
                             <div className="accordion-body">
-                                <Link className="list-group-item" to="/StudentList"><i class="far fa-address-book"></i>Student List</Link>
-                                <Link className="list-group-item" to="/AddStudent" ><i class="fas fa-user-plus"></i>Add Student</Link>
+                                <Link className="list-group-item" to="/StudentList"><i class="fas fa-list"></i>Student List</Link>
+                                <Link className="list-group-item" to="/AddStudent" ><i class="fas fa-list"></i>Add Student</Link>
                             </div>
                         </div>
                     </div>
 
-                    <button className="list-group-item" href="/"><i class="fas fa-user-tie"></i>Teacher</button>
+                    {/* <button className="list-group-item" href="/"><i class="fas fa-user-tie"></i>Teacher</button> */}
+                    <div className="accordion-item" id="drop-item">
+                        <h2 className="accordion-header" id="flush-headingDropteacher">
+                            <button className="accordion-button collapsed" id="flush-headingteacher" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseteacherDrop" aria-expanded="false" aria-controls="flush-collapseteacherDrop">
+                                <i class="fas fa-user-tie"></i>Teacher
+                            </button>
+                        </h2>
+                        <div id="flush-collapseteacherDrop" className="collapse" aria-labelledby="flush-headingDropteacher" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body">
+                                <Link className="list-group-item" to="/teacherList"><i class="fas fa-list"></i>Teacher List</Link>
+                                <Link className="list-group-item" to="/Addteacher" ><i class="fas fa-list"></i>Add teacher</Link>
+                            </div>
+                        </div>
+                    </div>
                     <button className="list-group-item" href="/"><i class="fas fa-book"></i>Courses</button>
                     <Link className="list-group-item" to="/Class"><i class="fas fa-chalkboard"></i>Class & Rooms</Link>
                     <Link className="list-group-item" to="/AdminExam"><i class="far fa-edit"></i>Manage Exam</Link>

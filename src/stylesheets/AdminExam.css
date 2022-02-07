@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 #AdminExamStep{
     margin-right: 10px;
     background-color:rgb(18, 148, 57);
@@ -5,14 +6,20 @@
     border-radius: 50px;
     padding: 5px; 
     font-size: 12px;
+    font-family: 'Roboto', sans-serif;
 }
 .accordion-body{
     text-align:left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
 }
 #create-exam{
     padding: 30px;
-    background-color:rgb(245, 245, 245)
+    background-color:rgb(245, 245, 245);
+    font-family: 'Roboto', sans-serif;
 }
 #flush-headingTwo{
     text-align:left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
 }

@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 #Custom_Search_student{
-    border: 1px solid rgb(100, 112, 218);
+    border: 1px solid rgb(212, 212, 212);
     background-color:rgb(255, 255, 255);
 }
 #Custom_Search_student h5{
@@ -20,7 +21,7 @@
 }
 
 #studentListRow4 button{
-    background-color:rgb(45, 61, 155);
+    background-color:rgb(45, 155, 60);
     border:none;
 }
 
@@ -31,7 +32,7 @@
     text-align: center; 
 }
 #student_data{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size: 16px;
 }
 #StudentTypeR{
@@ -49,3 +50,68 @@
     border-radius: 40px;
     padding: 1px;  
 }
+
+#icon button{
+    background-color:transparent !important;
+    border-radius: 40px;
+    border: none;
+}
+#icon button i{
+    margin-left:-2px;
+    margin-right: 1px;
+}
+#icon i{
+    margin-right: 10px;
+}
+#student_profile_pic{
+    text-align: right;
+}
+.modal-header{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
+    color: #fff;
+}
+#student_img{
+    width:150px;
+    height: 150px;
+}
+#student_profile_table{
+    text-align:justify;
+}
+#student_info_update_btn{
+    background-color: rgb(21, 136, 40);
+    color: #fff;
+}
+#student_info_update_btn:hover{
+    background-color: rgb(61, 151, 66);
+}
+#student_profile_table_row{
+    margin-bottom: 50px;
+    font-family: 'Rubik', sans-serif;
+    font-size:16px;
+    height:32px;    
+}
+#student_profile_info{
+    margin-top:40px;
+}
+#student_profile_table_row2{
+    margin-bottom: 50px;
+    font-family: 'Rubik', sans-serif;
+    font-size:16px;
+    height:50px;
+   
+}
+#student_personal_info1{
+    width:200px;
+    text-align: left;
+}
+#student_personal_info{
+    width:70px;
+    text-align:left;
+}
+#student_profile_status{
+    color: rgb(25, 190, 10);
+    border-radius: 50px;
+    
+}
+
+

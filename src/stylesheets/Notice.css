@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+#notice_list{
+    font-size:28px;
+    font-family: 'Roboto', sans-serif;
+    color:rgb(58, 57, 57);
+}
+#add_button_section{
+    text-align:right;
+    
+}
+#add_notice_btn{
+    margin-bottom:10px;
+    background-color: rgb(76, 151, 69);
+    color: #fff;
+}
+#add_notice_btn:hover{
+    background-color: rgb(66, 124, 60);
+}
+#add_notice_btn i{
+    font-size:15px;
+    color:rgb(253, 253, 253);
+}
+table{
+    border: 1px solid #fff;
+}
+thead{
+    border:none;
+}
+tr{
+    border: 1px solid #fff;
+}
+
+tbody{
+    border: 1px solid #fff;
+}
+#table_head{
+    text-align:center;
+}
+#notice_table_row{
+    height: 10px;
+    text-align:left;
+    font-family: 'Roboto', sans-serif;
+}
+#notice_table_col1{
+    padding:20px;
+    width: 150px;
+    font-size: 16px;
+    color:rgb(80, 80, 80);
+}
+#notice_table_col2 button{
+    text-align: left;
+    height:auto;
+    width:auto;
+    color:rgb(61, 90, 168);
+    font-size: 18px;
+    border:none !important;
+    background-color:#fff;
+    text-align:justify;
+}
+#notice_table_col3{
+    padding:20px;
+    width: 700px;
+    font-size: 14px;
+    color:rgb(80, 80, 80);
+    text-align:justify;
+}
+#notice_table_col4{
+    text-align:right;
+}
+#notice_table_col4 a{
+    font-size:30px;
+    color:rgb(179, 19, 19);
+    border: none;
+    background-color:#fff;
+    
+}
+#notice_table_col4 a i{
+    margin-top: 15px;
+}

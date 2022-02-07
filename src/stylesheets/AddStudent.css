@@ -1,0 +1,7 @@
+#add_user_btn{
+    background-color: rgb(32, 134, 32);
+    color: #fff;
+}
+#add_user_btn:hover{
+    background-color: rgb(32, 42, 134);
+}

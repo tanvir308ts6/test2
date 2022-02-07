@@ -1,43 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../stylesheets/Login.css';
-function login() {
-    return (
-        <div>
 
-            <div className="container-fluid">
-                <div className='row'>
-                    <div className='col-md-4'></div>
-                    <div className='col-md-4' id='cardCol'>
-                        <div className="card" id='loginCard'>
-                            <div className="card-body" id='loginCardBody'>
-                                <div className="card-title" id="card-title">
-                                   <p>Login</p> 
-                                </div>
-                                <form className="from">
-                                    <div className="mb-3">
-                                        <label for="exampleInputEmail1" className="form-label">Email address</label>
-                                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                                    </div>
-                                    <div className="mb-3">
-                                        <label for="exampleInputPassword1" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="exampleInputPassword1" />
-                                    </div>
-                                    <div className="mb-3 form-check">
-                                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                        <label className="form-check-label" for="exampleCheck1">Remember me</label>
-                                    </div>
-                                    <button type="submit" className="btn btn-primary">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-md-4'></div>
-                </div>
+function Login() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [pswd, setPswd] = useState("");
+
+    function adduser(){
+        console.warn=(name,email,pswd);
+    }
+  return (
+    <div className="body">
+    <div className="body">
+        <div class="main" id="main">
+            <input type="checkbox" id="chk" aria-hidden="true" />
+            <div class="signup">
+                <form>
+                    <label id="Login_level" for="chk" aria-hidden="true">Sign up</label>
+                    <input id="login_input" type="text" value={name} onChange={(event) => { setName(event.target.value) }} name="name" placeholder="User name" required="" />
+                    <input id="login_input" type="email" value={email} onChange={(event) => { setEmail(event.target.value) }} name="email" placeholder="Email" required="" />
+                    <input id="login_input" type="password" value={pswd} onChange={(event) => { setPswd(event.target.value) }} name="pswd" placeholder="Password" required="" />
+                    <button class="btn"id="button" type="button" onClick={adduser}>Sign up</button>
+                </form>
             </div>
-
+            <div class="login">
+                <form>
+                    <label id="Login_level_login" for="chk" aria-hidden="true">Login</label>
+                    <input id="login_input" type="email" name="email" placeholder="Email" required="" />
+                    <input id="login_input" type="password" name="pswd" placeholder="Password" required="" />
+                    <button id="button" type="button">Login</button>
+                </form>
+            </div>
         </div>
-    )
+    </div>
+</div>
+  )
 }
 
-export default login
+export default Login;

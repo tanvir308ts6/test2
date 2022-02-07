@@ -3,6 +3,7 @@ import '../stylesheets/Nav.css';
 
 
 function Nav() {
+
     return (
         <div className="container-fluid">
             <div className="row" id="Nav_row">

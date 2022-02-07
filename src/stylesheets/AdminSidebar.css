@@ -1,11 +1,10 @@
 
-
-
-
-
-
-
-
+#SaidbarStudentAdmin{
+    height: 132rem; /* 100% Full-height */
+    background-color: rgb(49, 45, 59);
+    overflow-x: hidden; /* Disable horizontal scroll */
+  
+}
 #drop-item{
     border:none;
     text-align: right;
@@ -33,6 +32,35 @@
     color:#fff; 
 }
 #flush-collapseStudentDrop{
+    border:none;
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+}
+
+
+/* teacher drop */
+#flush-headingDropteacher{
+    height: 40px;
+    color: #fff;
+}
+#flush-headingDropteacher i{
+    font-size: 16px;
+    margin-left: -4px;
+    margin-right: 20px;
+}
+
+#flush-headingteacher{
+    color: #fff;
+    /* background-color: rgb(120, 89, 194); */
+    background-color: rgb(49, 45, 59);
+    height: 40px;
+}
+#flush-headinggteacher:hover{
+    /* background-color:rgb(155, 128, 219); */
+    background-color: rgb(49, 45, 59);
+    color:#fff; 
+}
+#flush-collapseteacherDrop{
     border:none;
     /* background-color: rgb(120, 89, 194); */
     background-color: rgb(49, 45, 59);
