@@ -5,7 +5,8 @@ import Nav from './Nav';
 import '../stylesheets/TeacherList.css';
 import { Bars } from 'react-loader-spinner';
 import teacher from '../images/teacher1.jpg';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function TeacherList() {
     const [id, setId] = useState(null);
@@ -64,7 +65,47 @@ function TeacherList() {
         setFaculty(item.faculty)
         setPhone(item.phone)
     }
-    console.warn(id);
+
+
+
+    function updateTeacher() 
+    {
+        let updateItems = {
+            name,
+            teacher_id,
+            email,
+            post,
+            degree1,
+            degree2,
+            degree3,
+            department,
+            faculty, 
+            phone
+        }
+        fetch(`http://127.0.0.1:8000/api/updateTeacher/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateItems)
+        }).then((result) => {
+            toast.success("Student's Information has been updated successfully!😃", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            result.json().then((resp) => {
+                console.warn(resp)
+                getTeacher(updateItems);
+
+            })
+        })
+    }
     return (
         <div>
             <div>
@@ -171,7 +212,7 @@ function TeacherList() {
                                                                         <i class="far fa-eye" id="bars"></i>
                                                                     </button>
 
-                                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                                    <button type="button" onClick={() => selectTeacher(item.id)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                                                         <i className="fas fa-edit" id="edit"></i>
                                                                     </button>
                                                                 </td>
@@ -268,7 +309,6 @@ function TeacherList() {
                                                             </tbody>
                                                         </table>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -334,9 +374,19 @@ function TeacherList() {
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button id="student_info_update_btn" type="button" className="btn" >Update</button>
-                                            <ToastContainer />
+                                            <button id="student_info_update_btn" type="button" className="btn" onClick={updateTeacher} data-bs-dismiss="modal" >Update</button>
                                         </div>
+                                        <ToastContainer
+                                                    position="top-right"
+                                                    autoClose={5000}
+                                                    hideProgressBar={false}
+                                                    newestOnTop={false}
+                                                    closeOnClick
+                                                    rtl={false}
+                                                    pauseOnFocusLoss
+                                                    draggable
+                                                    pauseOnHover
+                                                />
                                     </div>
                                 </div>
                             </div>

@@ -118,7 +118,6 @@ function StudentList() {
             result.json().then((resp) => {
                 console.warn(resp)
                 getStudent(updateItems);
-
             })
         })
     }
@@ -255,7 +254,7 @@ function StudentList() {
                                                                     <i className="fas fa-edit" id="edit"></i>
                                                                 </button>
 
-                                                    
+
                                                             </td>
                                                         </tr>
                                                     ) : <div className="bar_loder">
@@ -345,8 +344,18 @@ function StudentList() {
                                             </div>
                                             <div className="modal-footer">
                                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button id="student_info_update_btn" type="button" className="btn" onClick={updateStudent}>Update</button>
-                                                <ToastContainer />
+                                                <button id="student_info_update_btn" type="button" data-bs-dismiss="modal" className="btn" onClick={updateStudent}>Update</button>
+                                                <ToastContainer
+                                                    position="top-right"
+                                                    autoClose={5000}
+                                                    hideProgressBar={false}
+                                                    newestOnTop={false}
+                                                    closeOnClick
+                                                    rtl={false}
+                                                    pauseOnFocusLoss
+                                                    draggable
+                                                    pauseOnHover
+                                                />
                                             </div>
                                         </div>
                                     </div>

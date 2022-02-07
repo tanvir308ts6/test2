@@ -34,7 +34,7 @@ function AdminSidebar() {
                         <div id="flush-collapseteacherDrop" className="collapse" aria-labelledby="flush-headingDropteacher" data-bs-parent="#accordionFlushExample">
                             <div className="accordion-body">
                                 <Link className="list-group-item" to="/teacherList"><i class="fas fa-list"></i>Teacher List</Link>
-                                <Link className="list-group-item" to="/Addteacher" ><i class="fas fa-list"></i>Add teacher</Link>
+                                <Link className="list-group-item" to="/Addteacher" ><i class="fas fa-list"></i>Add Teacher</Link>
                             </div>
                         </div>
                     </div>
