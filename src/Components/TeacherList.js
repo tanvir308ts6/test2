@@ -68,8 +68,7 @@ function TeacherList() {
 
 
 
-    function updateTeacher() 
-    {
+    function updateTeacher() {
         let updateItems = {
             name,
             teacher_id,
@@ -79,7 +78,7 @@ function TeacherList() {
             degree2,
             degree3,
             department,
-            faculty, 
+            faculty,
             phone
         }
         fetch(`http://127.0.0.1:8000/api/updateTeacher/${id}`, {
@@ -232,7 +231,7 @@ function TeacherList() {
                                 <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                                     <div className="modal-content">
                                         <div className="modal-header">
-                                            <h5 className="modal-title" id="studentViewLabel">Profile of {name}</h5>
+                                            <h5 className="modal-title" id="studentViewLabel">Profile of <u>{name}</u></h5>
                                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div className="modal-body">
@@ -377,16 +376,16 @@ function TeacherList() {
                                             <button id="student_info_update_btn" type="button" className="btn" onClick={updateTeacher} data-bs-dismiss="modal" >Update</button>
                                         </div>
                                         <ToastContainer
-                                                    position="top-right"
-                                                    autoClose={5000}
-                                                    hideProgressBar={false}
-                                                    newestOnTop={false}
-                                                    closeOnClick
-                                                    rtl={false}
-                                                    pauseOnFocusLoss
-                                                    draggable
-                                                    pauseOnHover
-                                                />
+                                            position="top-right"
+                                            autoClose={5000}
+                                            hideProgressBar={false}
+                                            newestOnTop={false}
+                                            closeOnClick
+                                            rtl={false}
+                                            pauseOnFocusLoss
+                                            draggable
+                                            pauseOnHover
+                                        />
                                     </div>
                                 </div>
                             </div>
