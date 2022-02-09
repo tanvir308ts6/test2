@@ -1,0 +1,42 @@
+.table{
+    font-family:Roboto,sans-serif;
+}
+#saturday{
+    background-color:rgb(49, 150, 35);
+    color: #fff;
+}
+#sunday{
+    background-color:rgb(219, 92, 8);
+    color: #fff;
+}
+#monday{
+    background-color:rgb(30, 172, 148);
+    color: #fff;
+}
+#tuesday{
+    background-color:rgb(139, 30, 172);
+    color: #fff;
+}
+#wednesday{
+    background-color:rgb(30, 92, 172);
+    color: #fff;
+}
+#thursday{
+    background-color:rgb(122, 143, 2);
+    color: #fff;
+}
+#friday{
+    background-color:rgb(192, 38, 38);
+    color: #fff;
+}
+#classSeduilHeading{
+
+    padding:10px;
+}
+#inputState{
+    border: none;
+    padding:5px;
+    border-bottom: 1px solid rgb(184, 184, 184);
+    border-radius:none;
+    font-family: 'Roboto', sans-serif;
+}

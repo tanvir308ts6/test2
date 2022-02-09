@@ -1,445 +1,242 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Bars } from 'react-loader-spinner';
+import '../stylesheets/ClassSchedule.css';
 
 function ClassSchedule() {
+    const [id, setId] = useState(null);
+    const [data, setData] = useState([]);
+    const [time, setTime] = useState("");
+    const [saturday, setSaturday] = useState("");
+    const [sunday, setSunday] = useState("");
+    const [monday, setMonday] = useState("");
+    const [tuesday, setTuesday] = useState("");
+    const [wednesday, setWednesday] = useState("");
+    const [thursday, setThursday] = useState("");
+    const [friday, setFriday] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        getClass()
+    }, [])
+    function getClass() {
+        fetch(`http://127.0.0.1:8000/api/classSchedule`).then((result) => {
+
+            result.json().then((resp) => {
+                // console.warn("result",resp)
+                setData(resp)
+                setId(resp[0].id)
+                setTime(resp[0].time)
+                setSaturday(resp[0].saturday)
+                setSunday(resp[0].sunday)
+                setMonday(resp[0].monday)
+                setTuesday(resp[0].tuesday)
+                setWednesday(resp[0].wednesday)
+                setThursday(resp[0].thursday)
+                setFriday(resp[0].friday)
+                setLoading(true)
+
+            })
+        })
+
+    }
+
+
+
+
+    function selectTeacher(id) {
+        console.warn(data[id - 1])
+        let item = data[id - 1]
+        setId(item.id)
+        setTime(item.time)
+        setSaturday(item.saturday)
+        setSunday(item.sunday)
+        setMonday(item.monday)
+        setTuesday(item.tuesday)
+        setWednesday(item.wednesday)
+        setThursday(item.thursday)
+        setFriday(item.friday)
+    }
+
     return (
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Class Schedule</h5>
+                <div className="row">
+                    <div className="col-md-6">
+                        <h5 class="card-title" id="classSeduilHeading" >Class Schedule</h5>
+                    </div>
+                    <div className="col-md-6">
+                        <select id="inputState" className="form-select">
+                            <option selected>Choose Semester</option>
+                            <option>1st Semester</option>
+                            <option>2nd Semester</option>
+                            <option>3rd Semester</option>
+                            <option>4th Semester</option>
+                        </select>
+                    </div>
+                </div>
                 <div className="table-responsive">
                     <table className="table table-bordered text-center">
                         <thead>
                             <tr className="bg-light-gray">
                                 <th className="text-uppercase">Time</th>
+                                <th className="text-uppercase">Saturday</th>
+                                <th className="text-uppercase">Sunday</th>
                                 <th className="text-uppercase">Monday</th>
                                 <th className="text-uppercase">Tuesday</th>
                                 <th className="text-uppercase">Wednesday</th>
                                 <th className="text-uppercase">Thursday</th>
                                 <th className="text-uppercase">Friday</th>
-                                <th className="text-uppercase">Saturday</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td className="align-middle">09:00am</td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-sky
+                            {
+                                loading ? data.map((item) =>
+                                    <tr>
+                                        <td className="align-middle">{item.time}</td>
+                                        <td>
+                                            <span
+                                                className="
                                                 padding-5px-tb padding-15px-lr
                                                 border-radius-5
                                                 margin-10px-bottom
-                                                text-white
                                                 font-size16
                                                 xs-font-size13
-                                            "
-                                    >Dance</span
-                                    >
-                                    <div className="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-green
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Yoga</span
-                                    >
-                                    <div className="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div className="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
+                                             "
+                                                id="saturday"
 
-                                <td>
-                                    <span
-                                        className="
-                                                bg-yellow
+                                            >
+                                                {item.saturday}
+                                            </span
+                                            >
+                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                        </td>
+                                        <td>
+                                            <span
+                                                className="
+                                                 padding-5px-tb padding-15px-lr
+                                                 border-radius-5
+                                                 margin-10px-bottom
+                                                 font-size16
+                                                 xs-font-size13
+                                             "
+                                                id="sunday"
+                                            >{item.sunday}</span
+                                            >
+                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                        </td>
+                                        <td>
+                                            <span
+                                                className="
                                                 padding-5px-tb padding-15px-lr
                                                 border-radius-5
                                                 margin-10px-bottom
-                                                text-white
                                                 font-size16
                                                 xs-font-size13
-                                            "
-                                    >Music</span
-                                    >
-                                    <div className="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-sky
+                                             "
+                                                id="monday"
+                                            >{item.monday}</span
+                                            >
+                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                        </td>
+                                        <td>
+                                            <span
+                                                className="
                                                 padding-5px-tb padding-15px-lr
                                                 border-radius-5
                                                 margin-10px-bottom
-                                                text-white
                                                 font-size16
                                                 xs-font-size13
-                                            "
-                                    >Dance</span
-                                    >
-                                    <div className="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-purple
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Art</span
-                                    >
-                                    <div className="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div className="font-size13 text-light-gray">Kate Alley</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-pink
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >English</span
-                                    >
-                                    <div className="margin-10px-top font-size14">9:00-10:00</div>
-                                    <div className="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                            </tr>
+                                             "
+                                                id="tuesday"
 
-                            <tr>
-                                <td className="align-middle">10:00am</td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-yellow
+                                            >{item.tuesday}</span
+                                            >
+                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                        </td>
+                                        <td>
+                                            <span
+                                                className="
                                                 padding-5px-tb padding-15px-lr
                                                 border-radius-5
                                                 margin-10px-bottom
-                                                text-white
                                                 font-size16
                                                 xs-font-size13
-                                            "
-                                    >Music</span
-                                    >
-                                    <div className="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td className="bg-light-gray"></td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-purple
+                                             "
+                                                id="wednesday"
+                                            >{item.wednesday}</span
+                                            >
+                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                        </td>
+                                        <td>
+                                            <span
+                                                className="
                                                 padding-5px-tb padding-15px-lr
                                                 border-radius-5
                                                 margin-10px-bottom
-                                                text-white
                                                 font-size16
                                                 xs-font-size13
-                                            "
-                                    >Art</span
-                                    >
-                                    <div className="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div className="font-size13 text-light-gray">Kate Alley</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-green
+                                             "
+                                                id="thursday"
+                                            >{item.thursday}</span
+                                            >
+                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                        </td>
+                                        <td>
+                                            <span
+                                                className="
                                                 padding-5px-tb padding-15px-lr
                                                 border-radius-5
                                                 margin-10px-bottom
-                                                text-white
                                                 font-size16
                                                 xs-font-size13
-                                            "
-                                    >Yoga</span
-                                    >
-                                    <div className="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div className="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-pink
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >English</span
-                                    >
-                                    <div className="margin-10px-top font-size14">10:00-11:00</div>
-                                    <div className="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                                <td className="bg-light-gray"></td>
-                            </tr>
+                                             "
+                                                id="friday"
+                                            >{item.friday}</span
+                                            >
+                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                        </td>
 
-                            <tr>
-                                <td className="align-middle">11:00am</td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-lightred
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Break</span
-                                    >
-                                    <div className="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-lightred
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Break</span
-                                    >
-                                    <div className="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-lightred
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Break</span
-                                    >
-                                    <div className="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-lightred
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Break</span
-                                    >
-                                    <div className="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-lightred
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Break</span
-                                    >
-                                    <div className="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-lightred
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Break</span
-                                    >
-                                    <div className="margin-10px-top font-size14">11:00-12:00</div>
-                                </td>
-                            </tr>
+                                    </tr>
+                                ) : <div className="bar_loder">
+                                    <Bars margin="200px" color="#228B22" height={80} width={1000} />
+                                </div>
+                            }
 
-                            <tr>
-                                <td className="align-middle">12:00pm</td>
-                                <td className="bg-light-gray"></td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-purple
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Art</span
-                                    >
-                                    <div className="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div className="font-size13 text-light-gray">Kate Alley</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-sky
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Dance</span
-                                    >
-                                    <div className="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-yellow
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Music</span
-                                    >
-                                    <div className="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td className="bg-light-gray"></td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-green
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Yoga</span
-                                    >
-                                    <div className="margin-10px-top font-size14">12:00-1:00</div>
-                                    <div className="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td className="align-middle">01:00pm</td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-pink
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >English</span
-                                    >
-                                    <div className="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div className="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-yellow
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Music</span
-                                    >
-                                    <div className="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                                <td className="bg-light-gray"></td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-pink
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >English</span
-                                    >
-                                    <div className="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div className="font-size13 text-light-gray">James Smith</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-green
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Yoga</span
-                                    >
-                                    <div className="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div className="font-size13 text-light-gray">Marta Healy</div>
-                                </td>
-                                <td>
-                                    <span
-                                        className="
-                                                bg-yellow
-                                                padding-5px-tb padding-15px-lr
-                                                border-radius-5
-                                                margin-10px-bottom
-                                                text-white
-                                                font-size16
-                                                xs-font-size13
-                                            "
-                                    >Music</span
-                                    >
-                                    <div className="margin-10px-top font-size14">1:00-2:00</div>
-                                    <div className="font-size13 text-light-gray">Ivana Wong</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
+                    {/* model class view */}
+                    <div className="modal fade" id="studentView" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="studentViewLabel" aria-hidden="true">
+                        <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="studentViewLabel">Student Info</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div className="modal-body">
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-md-8">
+                                                <table id="student_profile_table">
+                                                    <tbody>
+                                                        <tr id="student_profile_table_row">
+                                                            <th id="student_personal_info">Class Time:</th>
+                                                            <th>{time}</th>
+                                                        </tr>
+                                                        <tr id="student_profile_table_row">
+                                                            <th>Course Name </th>
+                                                            <td>{sunday}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

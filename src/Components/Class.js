@@ -1,10 +1,12 @@
-import React from 'react'
+import React  from 'react'
 import AdminSidebar from './AdminSidebar'
 import ClassSchedule from './ClassSchedule'
 import Footer from './Footer'
 import Nav from './Nav'
 
 function Class() {
+   
+
     return (
         <div>
             <Nav />
@@ -16,10 +18,7 @@ function Class() {
                     <div className="col-md-10">
                         <div className="row" id="ClassScheduleRow">
                             <div className="col-md-12">
-
                                 <ClassSchedule />
-
-
                             </div>
                         </div>
                     </div>

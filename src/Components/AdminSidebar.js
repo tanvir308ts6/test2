@@ -39,7 +39,7 @@ function AdminSidebar() {
                         </div>
                     </div>
                     <button className="list-group-item" href="/"><i class="fas fa-book"></i>Courses</button>
-                    <Link className="list-group-item" to="/Class"><i class="fas fa-chalkboard"></i>Class & Rooms</Link>
+                    <Link className="list-group-item" to="/AdminClassAndRoom"><i class="fas fa-chalkboard"></i>Class & Rooms</Link>
                     <Link className="list-group-item" to="/AdminExam"><i class="far fa-edit"></i>Manage Exam</Link>
                     <button className="list-group-item" href="/"><i class="fas fa-file-word"></i>Assignments</button>
                     <button className="list-group-item" href="/"><i class="fas fa-poll"></i>Results</button>
