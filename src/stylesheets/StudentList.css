@@ -19,9 +19,16 @@
     height: 500px;
     overflow: auto;
 }
-th, td {
-	white-space: nowrap;
+#student_table_row{
+    white-space: nowrap;
+    
 }
+#student_table_id{
+    white-space: nowrap;
+}
+/* th, td {
+	white-space: nowrap;
+} */
 
 .first-col {
 	width: 5em;

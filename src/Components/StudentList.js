@@ -235,7 +235,6 @@ function StudentList() {
                                                             <th scope="col">Name</th>
                                                             <th scope="col">Email</th>
                                                             <th scope="col">Department</th>
-                                                           
                                                             <th scope="col">Status</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -243,8 +242,8 @@ function StudentList() {
                                                     <tbody>
                                                         {
                                                             loading ? data.map((item) =>
-                                                                <tr>
-                                                                    <th className="first-col">{item.student_id}</th>
+                                                                <tr id="student_table_row">
+                                                                    <th id="student_table_id" className="first-col">{item.student_id}</th>
                                                                     <td id="student_data">{item.StudentName}</td>
                                                                     <td id="student_data">{item.email}</td>
                                                                    
