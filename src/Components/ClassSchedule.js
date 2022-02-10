@@ -13,6 +13,7 @@ function ClassSchedule() {
     const [wednesday, setWednesday] = useState("");
     const [thursday, setThursday] = useState("");
     const [friday, setFriday] = useState("");
+    
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -34,6 +35,18 @@ function ClassSchedule() {
                 setThursday(resp[0].thursday)
                 setFriday(resp[0].friday)
                 setLoading(true)
+
+            })
+        })
+
+    }
+
+    function searchClass(for_batch) {
+        fetch(`http://127.0.0.1:8000/api/searchClass/?`+ for_batch ).then((result) => {
+
+            result.json().then((resp) => {
+                // console.warn("result",resp)
+                setData(resp)
 
             })
         })
@@ -65,13 +78,10 @@ function ClassSchedule() {
                         <h5 class="card-title" id="classSeduilHeading" >Class Schedule</h5>
                     </div>
                     <div className="col-md-6">
-                        <select id="inputState" className="form-select">
-                            <option selected>Choose Semester</option>
-                            <option>1st Semester</option>
-                            <option>2nd Semester</option>
-                            <option>3rd Semester</option>
-                            <option>4th Semester</option>
-                        </select>
+                        <form className="d-flex">
+                            <input className="form-control me-2"  id="inputState" type="search" placeholder="Search" aria-label="Search"/>
+                                <button className="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                     </div>
                 </div>
                 <div className="table-responsive">

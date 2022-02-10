@@ -7,7 +7,7 @@ import '../stylesheets/AdminClassAndRoom.css'
 
 function AdminClassAndRoom() {
     return (
-        <div>
+        <div>   
             <Nav />
             <div className="container-fluid">
                 <div className="row">
@@ -42,7 +42,7 @@ function AdminClassAndRoom() {
                                                                         </select>
                                                                     </div>
                                                                     <div className="col-md-6">
-                                                                        <label for="inputEmail4" className="form-label">Friday</label>
+                                                                        <label for="inputEmail4" className="form-label">Teacher Name</label>
                                                                         <input type="email" className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">

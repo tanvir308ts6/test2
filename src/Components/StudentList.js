@@ -36,7 +36,7 @@ function StudentList() {
         fetch(`${id ? 'http://127.0.0.1:8000/api/student/?' + id : 'http://127.0.0.1:8000/api/student'}`).then((result) => {
 
             result.json().then((resp) => {
-                // console.warn("result",resp)
+                //console.warn(resp)
                 setData(resp)
                 setLoading(true)
                 setId(resp[0].id)
@@ -98,6 +98,7 @@ function StudentList() {
             campus,
             CGPA
         }
+        console.log(updateItems);
         fetch(`http://127.0.0.1:8000/api/editstudent/${id}`, {
             method: 'PATCH',
             headers: {
@@ -120,6 +121,7 @@ function StudentList() {
                 getStudent(updateItems);
             })
         })
+    
     }
     return (
         <div>
@@ -230,7 +232,7 @@ function StudentList() {
                                                     <th scope="col">Name</th>
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Department</th>
-                                                    <th scope="col">Faculty</th>
+                                                    
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
@@ -243,7 +245,6 @@ function StudentList() {
                                                             <td id="student_data">{item.StudentName}</td>
                                                             <td id="student_data">{item.email}</td>
                                                             <td id="student_data">{item.department}</td>
-                                                            <td id="student_data">{item.faculty}</td>
                                                             <td id="student_data"><p id="StudentTypeR">Regular</p> </td>
                                                             <td id="icon">
                                                                 <button onClick={() => selectStudent(item.id)} type="button" data-bs-toggle="modal" data-bs-target="#studentView">
@@ -326,20 +327,48 @@ function StudentList() {
                                                         <div id="emailHelp" class="form-text">Edit student's Batch here.</div>
                                                     </div>
                                                     <div className="col-md-4">
+                                                        <label for="inputState" className="form-label">Select Faculty</label>
+                                                        <select className="form-select" value={faculty}  onChange={(event) => setFaculty(event.target.value)}>
+                                                            <option selected value="">Choose...</option>
+                                                            <option value="Faculty of Science and Information Technology">Faculty of Science and Information Technology</option>
+                                                            <option value="Faculty of Business & Entrepreneurship">Faculty of Business & Entrepreneurship</option>
+                                                            <option value="Faculty of Engineering">Faculty of Engineering</option>
+                                                            <option value="Faculty of Humanities & Social Science">Faculty of Humanities & Social Science</option>
+                                                        </select>
+                                                    </div>
+                                                    <div className="col-md-4">
+                                                        <label for="inputState" className="form-label">Select Faculty</label>
+                                                        <select className="form-select" value={department}  onChange={(event) => setDepartment(event.target.value)}>
+                                                            <option selected value="">Choose...</option>
+                                                            <option value="CSE">CSE</option>
+                                                            <option value="CIS">CIS</option>
+                                                            <option value="BBA">BBA</option>
+                                                            <option value="EEE">EEE</option>
+                                                        </select>
+                                                    </div>
+                                                    <div className="col-md-4">
+                                                        <label for="inputState" className="form-label">Select Campus</label>
+                                                        <select className="form-select" value={campus}  onChange={(event) => setCampus(event.target.value)}>
+                                                            <option selected>Choose...</option>
+                                                            <option value="CITY">CITY</option>
+                                                            <option value="PARMANENT">PARMANENT</option>
+                                                        </select>
+                                                    </div>
+                                                    {/* <div className="col-md-4">
                                                         <label for="inputState" className="form-label">Faculty</label>
                                                         <input type="text" value={faculty} onChange={(event) => setFaculty(event.target.value)} className="form-control" id="Batch" />
                                                         <div id="emailHelp" class="form-text">Edit student's Faculty here.</div>
-                                                    </div>
-                                                    <div className="col-md-4">
+                                                    </div> */}
+                                                    {/* <div className="col-md-4">
                                                         <label for="inputState" className="form-label">Department</label>
                                                         <input type="text" value={department} onChange={(event) => setDepartment(event.target.value)} className="form-control" id="Batch" />
                                                         <div id="emailHelp" class="form-text">Edit student's Department here.</div>
-                                                    </div>
-                                                    <div className="col-md-4">
+                                                    </div> */}
+                                                    {/* <div className="col-md-4">
                                                         <label for="inputState" className="form-label">Campus</label>
                                                         <input type="text" value={campus} onChange={(event) => setCampus(event.target.value)} className="form-control" id="Batch" />
                                                         <div id="emailHelp" class="form-text">Edit student's Campus here.</div>
-                                                    </div>
+                                                    </div> */}
                                                 </form>
                                             </div>
                                             <div className="modal-footer">
