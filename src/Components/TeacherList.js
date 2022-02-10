@@ -345,15 +345,25 @@ function TeacherList() {
                                                     <div id="emailHelp" class="form-text">Edit Teacher email here.</div>
                                                 </div>
                                                 <div className="col-md-6">
-                                                    <label for="inputState" className="form-label">Faculty</label>
-                                                    <input type="text" value={faculty} onChange={(event) => setFaculty(event.target.value)} className="form-control" id="Batch" />
-                                                    <div id="emailHelp" class="form-text">Edit Teacher's Faculty here.</div>
-                                                </div>
-                                                <div className="col-md-6">
-                                                    <label for="inputState" className="form-label">Department</label>
-                                                    <input type="text" value={department} onChange={(event) => setDepartment(event.target.value)} className="form-control" id="Batch" />
-                                                    <div id="emailHelp" class="form-text">Edit Teacher's Department here.</div>
-                                                </div>
+                                                        <label for="inputState" className="form-label">Select Faculty</label>
+                                                        <select className="form-select" value={faculty}  onChange={(event) => setFaculty(event.target.value)}>
+                                                            <option selected value="">Choose...</option>
+                                                            <option value="Faculty of Science and Information Technology">Faculty of Science and Information Technology</option>
+                                                            <option value="Faculty of Business & Entrepreneurship">Faculty of Business & Entrepreneurship</option>
+                                                            <option value="Faculty of Engineering">Faculty of Engineering</option>
+                                                            <option value="Faculty of Humanities & Social Science">Faculty of Humanities & Social Science</option>
+                                                        </select>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <label for="inputState" className="form-label">Select Faculty</label>
+                                                        <select className="form-select" value={department}  onChange={(event) => setDepartment(event.target.value)}>
+                                                            <option selected value="">Choose...</option>
+                                                            <option value="CSE">CSE</option>
+                                                            <option value="CIS">CIS</option>
+                                                            <option value="BBA">BBA</option>
+                                                            <option value="EEE">EEE</option>
+                                                        </select>
+                                                    </div>
                                                 <div className="col-md-12">
                                                     <label for="inputState" className="form-label">Ph.D.</label>
                                                     <textarea type="text" value={degree1} onChange={(event) => setDegree1(event.target.value)} className="form-control" id="Batch" />

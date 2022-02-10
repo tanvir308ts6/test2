@@ -14,7 +14,27 @@
     margin-top: 16px;
     text-align: right;
 }
+.my-custom-scrollbar {
+    position: relative;
+    height: 500px;
+    overflow: auto;
+}
+th, td {
+	white-space: nowrap;
+}
 
+.first-col {
+	width: 5em;
+}
+
+.table-wrapper {
+    overflow-x: scroll;
+	width:auto;
+	margin: 0 auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
 #studentListRow4{
     margin-top: 20px;
     text-align: right;
@@ -113,5 +133,8 @@
     border-radius: 50px;
     
 }
+
+
+
 
 

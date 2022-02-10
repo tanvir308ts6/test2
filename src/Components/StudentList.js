@@ -121,7 +121,7 @@ function StudentList() {
                 getStudent(updateItems);
             })
         })
-    
+
     }
     return (
         <div>
@@ -222,48 +222,54 @@ function StudentList() {
                         </div>
                         <div className="row" id="row3">
                             <div className="col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Student List</h5>
-                                        <table className="table table-striped table-hover">
-                                            <thead className="table-header">
-                                                <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Department</th>
-                                                    
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {
-                                                    loading ? data.map((item) =>
+
+                                <div className="card ">
+                                    <div className="card-body ">
+                                        <h5 className="card-title">Student List</h5>
+                                        <div className="table-wrapper-scroll-y my-custom-scrollbar">
+                                            <div className="table-wrapper">
+                                                <table className="table table-hover table-striped mb-0">
+                                                    <thead className="table-header">
                                                         <tr>
-                                                            <th scope="row">{item.student_id}</th>
-                                                            <td id="student_data">{item.StudentName}</td>
-                                                            <td id="student_data">{item.email}</td>
-                                                            <td id="student_data">{item.department}</td>
-                                                            <td id="student_data"><p id="StudentTypeR">Regular</p> </td>
-                                                            <td id="icon">
-                                                                <button onClick={() => selectStudent(item.id)} type="button" data-bs-toggle="modal" data-bs-target="#studentView">
-                                                                    <i class="far fa-eye" id="bars"></i>
-                                                                </button>
-
-                                                                <button onClick={() => selectStudent(item.id)} type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                                                    <i className="fas fa-edit" id="edit"></i>
-                                                                </button>
-
-
-                                                            </td>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Department</th>
+                                                           
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
-                                                    ) : <div className="bar_loder">
-                                                        <Bars margin="200px" color="#228B22" height={80} width={1000} />
-                                                    </div>
-                                                }
-                                            </tbody>
-                                        </table>
+                                                    </thead>
+                                                    <tbody>
+                                                        {
+                                                            loading ? data.map((item) =>
+                                                                <tr>
+                                                                    <th className="first-col">{item.student_id}</th>
+                                                                    <td id="student_data">{item.StudentName}</td>
+                                                                    <td id="student_data">{item.email}</td>
+                                                                   
+                                                                    <td id="student_data">{item.department}</td>
+                                                                    <td id="student_data"><p id="StudentTypeR">Regular</p> </td>
+                                                                    <td id="icon">
+                                                                        <button onClick={() => selectStudent(item.id)} type="button" data-bs-toggle="modal" data-bs-target="#studentView">
+                                                                            <i class="far fa-eye" id="bars"></i>
+                                                                        </button>
+
+                                                                        <button onClick={() => selectStudent(item.id)} type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                                            <i className="fas fa-edit" id="edit"></i>
+                                                                        </button>
+
+
+                                                                    </td>
+                                                                </tr>
+                                                            ) : <div className="bar_loder">
+                                                                <Bars margin="200px" color="#228B22" height={80} width={1000} />
+                                                            </div>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 {/* Model edit student */}
@@ -328,7 +334,7 @@ function StudentList() {
                                                     </div>
                                                     <div className="col-md-4">
                                                         <label for="inputState" className="form-label">Select Faculty</label>
-                                                        <select className="form-select" value={faculty}  onChange={(event) => setFaculty(event.target.value)}>
+                                                        <select className="form-select" value={faculty} onChange={(event) => setFaculty(event.target.value)}>
                                                             <option selected value="">Choose...</option>
                                                             <option value="Faculty of Science and Information Technology">Faculty of Science and Information Technology</option>
                                                             <option value="Faculty of Business & Entrepreneurship">Faculty of Business & Entrepreneurship</option>
@@ -338,7 +344,7 @@ function StudentList() {
                                                     </div>
                                                     <div className="col-md-4">
                                                         <label for="inputState" className="form-label">Select Faculty</label>
-                                                        <select className="form-select" value={department}  onChange={(event) => setDepartment(event.target.value)}>
+                                                        <select className="form-select" value={department} onChange={(event) => setDepartment(event.target.value)}>
                                                             <option selected value="">Choose...</option>
                                                             <option value="CSE">CSE</option>
                                                             <option value="CIS">CIS</option>
@@ -348,7 +354,7 @@ function StudentList() {
                                                     </div>
                                                     <div className="col-md-4">
                                                         <label for="inputState" className="form-label">Select Campus</label>
-                                                        <select className="form-select" value={campus}  onChange={(event) => setCampus(event.target.value)}>
+                                                        <select className="form-select" value={campus} onChange={(event) => setCampus(event.target.value)}>
                                                             <option selected>Choose...</option>
                                                             <option value="CITY">CITY</option>
                                                             <option value="PARMANENT">PARMANENT</option>
