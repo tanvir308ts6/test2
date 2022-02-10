@@ -237,7 +237,7 @@ function TeacherList() {
                                         <div className="modal-body">
                                             <div className="container">
                                                 <div className="row">
-                                                    <div className="col-md-8">
+                                                    <div className="col-md-9">
                                                         <table id="student_profile_table">
                                                             <tbody>
                                                                 <tr id="student_profile_table_row">
@@ -252,14 +252,14 @@ function TeacherList() {
                                                                     <td>Department: </td>
                                                                     <td> {department}</td>
                                                                 </tr>
-                                                                <tr id="student_profile_table_row2">
+                                                                <tr id="student_profile_table_faculty">
                                                                     <td>Faculty: </td>
                                                                     <td> {faculty}</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                    <div className="col-md-4" id="student_profile_pic">
+                                                    <div className="col-md-3" id="student_profile_pic">
                                                         <img id="student_img" src={teacher} alt="profile" srcset="" />
                                                     </div>
                                                 </div>
@@ -319,7 +319,7 @@ function TeacherList() {
                                 <div className="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                                     <div className="modal-content">
                                         <div className="modal-header">
-                                            <h5 className="modal-title" id="staticBackdropLabel">Edit Student Info</h5>
+                                            <h5 className="modal-title" id="staticBackdropLabel">Edit Information of <u>{name}</u></h5>
                                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div className="modal-body">
@@ -355,7 +355,7 @@ function TeacherList() {
                                                         </select>
                                                     </div>
                                                     <div className="col-md-6">
-                                                        <label for="inputState" className="form-label">Select Faculty</label>
+                                                        <label for="inputState" className="form-label">Select Department</label>
                                                         <select className="form-select" value={department}  onChange={(event) => setDepartment(event.target.value)}>
                                                             <option selected value="">Choose...</option>
                                                             <option value="CSE">CSE</option>

@@ -89,7 +89,7 @@ function AdminClassAndRoom() {
                                                                     <div className="col-md-6">
                                                                         <label for="inputState" className="form-label">Select Batch</label>
                                                                         <select id="inputState" className="form-select"  value={batch} onChange={(event) => setBatch(event.target.value)}>
-                                                                            <option selected>Choose...</option>
+                                                                            <option selected value="">Choose...</option>
                                                                             <option value="CIS 1">CIS 1</option>
                                                                             <option value="CIS 2">CIS 2</option>
                                                                             <option value="CIS 3">CIS 3</option>

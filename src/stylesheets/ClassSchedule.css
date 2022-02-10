@@ -1,3 +1,7 @@
+#inputStateSearch:focus{
+    border-color: #ced4da;
+    box-shadow: none;
+  }
 .table{
     font-family:Roboto,sans-serif;
 }
@@ -35,8 +39,22 @@
 }
 #inputState{
     border: none;
-    padding:5px;
     border-bottom: 1px solid rgb(184, 184, 184);
     border-radius:none;
     font-family: 'Roboto', sans-serif;
+}
+#inputStateSearch{
+    border: none;
+    border-radius:none;
+    font-family: 'Roboto', sans-serif;
+}
+#batchSearchBtn{
+    border: none;
+}
+#batchSearchBtn:focus{
+    box-shadow: none;
+}
+#batchSearchBtn:hover{
+    background-color: transparent;
+    color: rgb(6, 100, 35);
 }
