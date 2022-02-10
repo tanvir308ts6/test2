@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Bars } from 'react-loader-spinner';
 import '../stylesheets/ClassSchedule.css';
@@ -13,13 +14,15 @@ function ClassSchedule() {
     const [wednesday, setWednesday] = useState("");
     const [thursday, setThursday] = useState("");
     const [friday, setFriday] = useState("");
+    const [batch, setBatch] = useState("");
     
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         getClass()
     }, [])
-    function getClass() {
+    function getClass() 
+    {
         fetch(`http://127.0.0.1:8000/api/classSchedule`).then((result) => {
 
             result.json().then((resp) => {
@@ -41,18 +44,25 @@ function ClassSchedule() {
 
     }
 
-    function searchClass(for_batch) {
-        fetch(`http://127.0.0.1:8000/api/searchClass/?`+ for_batch ).then((result) => {
+   
 
-            result.json().then((resp) => {
-                // console.warn("result",resp)
-                setData(resp)
-
-            })
-        })
+    const searchClass = ()=> {
+        axios.get(`http://127.0.0.1:8000/api/searchClass/` +batch)
+        .then((response)=>{
+            setData(response.data);
+            
+        });
+        
 
     }
+    // fetch(`http://127.0.0.1:8000/api/searchClass/?`+ batch ).then((result) => {
 
+    //         result.json().then((resp) => {
+    //             console.warn(resp)
+    //             setData(resp)
+
+    //         })
+    //     })
 
 
 
@@ -79,8 +89,8 @@ function ClassSchedule() {
                     </div>
                     <div className="col-md-6">
                         <form className="d-flex">
-                            <input className="form-control me-2"  id="inputState" type="search" placeholder="Search" aria-label="Search"/>
-                                <button className="btn btn-outline-success" type="submit">Search</button>
+                            <input className="form-control me-2" onChange={(event)=>setBatch(event.target.value)}  id="inputState" type="search" placeholder="Search" aria-label="Search"/>
+                                <button className="btn btn-outline-success" onClick={searchClass} type="button">Search</button>
                         </form>
                     </div>
                 </div>
@@ -88,7 +98,6 @@ function ClassSchedule() {
                     <table className="table table-bordered text-center">
                         <thead>
                             <tr className="bg-light-gray">
-                                <th className="text-uppercase">Time</th>
                                 <th className="text-uppercase">Saturday</th>
                                 <th className="text-uppercase">Sunday</th>
                                 <th className="text-uppercase">Monday</th>
@@ -102,7 +111,7 @@ function ClassSchedule() {
                             {
                                 loading ? data.map((item) =>
                                     <tr>
-                                        <td className="align-middle">{item.time}</td>
+                                        
                                         <td>
                                             <span
                                                 className="
@@ -118,7 +127,7 @@ function ClassSchedule() {
                                                 {item.saturday}
                                             </span
                                             >
-                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                            <div className="font-size13 text-dark">{item.time}</div>
                                         </td>
                                         <td>
                                             <span
@@ -132,7 +141,7 @@ function ClassSchedule() {
                                                 id="sunday"
                                             >{item.sunday}</span
                                             >
-                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                            <div className="font-size13 text-dark">{item.time}</div>
                                         </td>
                                         <td>
                                             <span
@@ -146,7 +155,7 @@ function ClassSchedule() {
                                                 id="monday"
                                             >{item.monday}</span
                                             >
-                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                            <div className="font-size13 text-dark">{item.time}</div>
                                         </td>
                                         <td>
                                             <span
@@ -161,7 +170,7 @@ function ClassSchedule() {
 
                                             >{item.tuesday}</span
                                             >
-                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                            <div className="font-size13 text-dark">{item.time}</div>
                                         </td>
                                         <td>
                                             <span
@@ -175,7 +184,7 @@ function ClassSchedule() {
                                                 id="wednesday"
                                             >{item.wednesday}</span
                                             >
-                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                            <div className="font-size13 text-dark">{item.time}</div>
                                         </td>
                                         <td>
                                             <span
@@ -189,7 +198,7 @@ function ClassSchedule() {
                                                 id="thursday"
                                             >{item.thursday}</span
                                             >
-                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                            <div className="font-size13 text-dark">{item.time}</div>
                                         </td>
                                         <td>
                                             <span
@@ -203,7 +212,7 @@ function ClassSchedule() {
                                                 id="friday"
                                             >{item.friday}</span
                                             >
-                                            <div className="font-size13 text-light-gray">Ivana Wong</div>
+                                            <div className="font-size13 text-dark">{item.time}</div>
                                         </td>
 
                                     </tr>

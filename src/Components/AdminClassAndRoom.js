@@ -1,13 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AdminSidebar from './AdminSidebar';
 import ClassSchedule from './ClassSchedule';
 import Footer from './Footer';
 import Nav from './Nav';
 import '../stylesheets/AdminClassAndRoom.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AdminClassAndRoom() {
+    const [time, setTime] = useState("");
+    const [saturday, setSaturday] = useState("");
+    const [sunday, setSunday] = useState("");
+    const [monday, setMonday] = useState("");
+    const [tuesday, setTuesday] = useState("");
+    const [wednesday, setWednesday] = useState("");
+    const [thursday, setThursday] = useState("");
+    const [friday, setFriday] = useState("");
+    const [batch, setBatch] = useState("");
+    function saveClass() {
+        let classe = {
+            time,
+            saturday,
+            sunday,
+            monday,
+            tuesday,
+            wednesday,
+            thursday,
+            friday,
+            batch
+        }
+        fetch("http://127.0.0.1:8000/api/AddClass",
+            {
+                method: "POST",
+                mode: 'cors',
+                headers:
+                {
+                    'Accept': 'application/json',
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(classe)
+            }).then((result) => {
+                // if (!('errors' in result)) 
+                toast.success('Notice has been added!😃', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                console.log("result", result);
+            }).catch((result) => {
+                console.warn(result)
+            })
+    }
+
+
+
+
+
+
     return (
-        <div>   
+        <div>
             <Nav />
             <div className="container-fluid">
                 <div className="row">
@@ -32,51 +87,59 @@ function AdminClassAndRoom() {
                                                             <div className="accordion-body">
                                                                 <form className="row g-3">
                                                                     <div className="col-md-6">
-                                                                        <label for="inputState" className="form-label">Select Semester</label>
-                                                                        <select id="inputState" className="form-select">
+                                                                        <label for="inputState" className="form-label">Select Batch</label>
+                                                                        <select id="inputState" className="form-select"  value={batch} onChange={(event) => setBatch(event.target.value)}>
                                                                             <option selected>Choose...</option>
-                                                                            <option>1st Semester</option>
-                                                                            <option>2nd Semester</option>
-                                                                            <option>3rd Semester</option>
-                                                                            <option>4th Semester</option>
+                                                                            <option value="CIS 1">CIS 1</option>
+                                                                            <option value="CIS 2">CIS 2</option>
+                                                                            <option value="CIS 3">CIS 3</option>
+                                                                            <option value="CIS 4">CIS 4</option>
+                                                                            <option value="CIS 5">CIS 5</option>
+                                                                            <option value="CIS 6">CIS 6</option>
+                                                                            <option value="CIS 7">CIS 7</option>
+                                                                            <option value="CIS 8">CIS 8</option>
+                                                                            <option value="CIS 9">CIS 9</option>
+                                                                            <option value="CIS 10">CIS 10</option>
+                                                                            <option value="CIS 11">CIS 11</option>
+                                                                            <option value="CIS 12">CIS 12</option>
                                                                         </select>
                                                                     </div>
                                                                     <div className="col-md-6">
-                                                                        <label for="inputEmail4" className="form-label">Teacher Name</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <label for="inputEmail4" className="form-label">Class Time</label>
+                                                                        <input type="text" value={time} onChange={(event) => { setTime(event.target.value) }} name={time} className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Saturday</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="email"value={saturday} onChange={(event) => { setSaturday(event.target.value) }} name={saturday} className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Sunday</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="email"value={sunday} onChange={(event) => { setSunday(event.target.value) }} name={sunday} className="form-control" id="inputEmail4" />
                                                                     </div>
 
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Monday</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="email"value={monday} onChange={(event) => { setMonday(event.target.value) }} name={monday} className="form-control" id="inputEmail4" />
                                                                     </div>
-                                                                    
+
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Tuesday</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="email"value={tuesday} onChange={(event) => { setTuesday(event.target.value) }} name={tuesday} className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Wednesday</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="email"value={wednesday} onChange={(event) => { setWednesday(event.target.value) }} name={wednesday} className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Thursday</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="email"value={thursday} onChange={(event) => { setThursday(event.target.value) }} name={thursday} className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Friday</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="email"value={friday} onChange={(event) => { setFriday(event.target.value) }} name={friday} className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-12">
-                                                                        <button type="submit" className="btn btn-primary">Create Class</button>
+                                                                        <button type="button" className="btn btn-primary" onClick={saveClass}>Create Class</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
