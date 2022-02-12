@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Bars } from 'react-loader-spinner';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import AdminSidebar from './AdminSidebar'
 import Footer from './Footer'
 import Nav from './Nav'
@@ -14,6 +14,8 @@ function Courses() {
     useEffect(() => {
         getcourse()
     }, [])
+
+    // load all courses
     function getcourse() {
         fetch(`http://127.0.0.1:8000/api/Course`).then((result) => {
 
@@ -26,7 +28,46 @@ function Courses() {
         })
 
     }
+    // Add new course
+    function AddCourse() {
+        let data =
+        {
+            course_code,
+            name,
+            course_credit,
 
+        }
+        fetch("http://127.0.0.1:8000/api/AddCourse",
+            {
+                method: "POST",
+                mode: 'cors',
+                headers:
+                {
+                    'Accept': 'application/json',
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then((result) => {
+                // if (!('errors' in result)) 
+                
+                toast.success('Student has been added!😃', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+
+                
+                console.log("result", result);
+            }).catch((result) => {
+                console.warn(result)
+            })
+
+    }
+    // Populate Courses before update course info
     function selectCourse(id) {
         console.warn(data[id - 1])
         let item = data[id - 1]
@@ -63,18 +104,18 @@ function Courses() {
                                                                 <form className="row g-3">
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Course Code</label>
-                                                                        <input type="text" className="form-control" id="inputEmail4" />
+                                                                        <input type="text" value={course_code} onChange={(event) => { setCourse_code(event.target.value) }} name="name" className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Course Name</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="text" value={name} onChange={(event) => { setName(event.target.value) }} name="name" className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Course Credit</label>
-                                                                        <input type="email" className="form-control" id="inputEmail4" />
+                                                                        <input type="text" value={course_credit} onChange={(event) => { setCourse_credit(event.target.value) }} name="course_credit" className="form-control" id="inputEmail4" />course_credit
                                                                     </div>
                                                                     <div className="col-12">
-                                                                        <button type="button" className="btn btn-primary">Create Course</button>
+                                                                        <button type="button" className="btn btn-primary" onClick={AddCourse}>Create Course</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
