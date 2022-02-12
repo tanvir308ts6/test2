@@ -50,7 +50,7 @@ function Courses() {
             }).then((result) => {
                 // if (!('errors' in result)) 
                 
-                toast.success('Student has been added!😃', {
+                toast.success('Course Info has been Updated!😃', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -75,6 +75,40 @@ function Courses() {
         setCourse_code(item.course_code)
         setName(item.name)
         setCourse_credit(item.course_credit)
+    }
+
+    // Update course info
+    function updateCourses() {
+        let updateItems = {
+            id,
+            course_code,
+            name,
+            course_credit
+        }
+        console.log(updateItems);
+        fetch(`http://127.0.0.1:8000/api/UpadateCourse/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateItems)
+        }).then((result) => {
+            toast.success("Student's Information has been updated successfully!😃", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            result.json().then((resp) => {
+                console.warn(resp)
+                getcourse(updateItems);
+            })
+        })
+
     }
 
     return (
@@ -112,7 +146,7 @@ function Courses() {
                                                                     </div>
                                                                     <div className="col-md-6">
                                                                         <label for="inputEmail4" className="form-label">Course Credit</label>
-                                                                        <input type="text" value={course_credit} onChange={(event) => { setCourse_credit(event.target.value) }} name="course_credit" className="form-control" id="inputEmail4" />course_credit
+                                                                        <input type="text" value={course_credit} onChange={(event) => { setCourse_credit(event.target.value) }} name="course_credit" className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-12">
                                                                         <button type="button" className="btn btn-primary" onClick={AddCourse}>Create Course</button>
@@ -192,7 +226,7 @@ function Courses() {
                                             </div>
                                             <div className="modal-footer">
                                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button id="student_info_update_btn" type="button" data-bs-dismiss="modal" className="btn">Update</button>
+                                                <button id="student_info_update_btn" type="button" data-bs-dismiss="modal" className="btn" onClick={updateCourses}>Update</button>
                                                 <ToastContainer
                                                     position="top-right"
                                                     autoClose={5000}
