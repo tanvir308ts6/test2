@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Bars } from 'react-loader-spinner';
+import { ToastContainer } from 'react-toastify';
 import AdminSidebar from './AdminSidebar'
 import Footer from './Footer'
 import Nav from './Nav'
 function Courses() {
     const [data, setData] = useState("");
+    const [id, setId] = useState("");
     const [course_code, setCourse_code] = useState("");
     const [name, setName] = useState("");
     const [course_credit, setCourse_credit] = useState("");
@@ -23,6 +25,15 @@ function Courses() {
             })
         })
 
+    }
+
+    function selectCourse(id) {
+        console.warn(data[id - 1])
+        let item = data[id - 1]
+        setId(item.id)
+        setCourse_code(item.course_code)
+        setName(item.name)
+        setCourse_credit(item.course_credit)
     }
 
     return (
@@ -63,7 +74,7 @@ function Courses() {
                                                                         <input type="email" className="form-control" id="inputEmail4" />
                                                                     </div>
                                                                     <div className="col-12">
-                                                                        <button type="button" className="btn btn-primary">Create Class</button>
+                                                                        <button type="button" className="btn btn-primary">Create Course</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -80,14 +91,14 @@ function Courses() {
                             <div className="col-md-12">
                                 <div class="card">
                                     <div class="card-body">
-
+                                    <h5 class="card-title" id="classSeduilHeading" >Course List</h5>
                                         <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Course Code</th>
                                                     <th scope="col">Course Name</th>
                                                     <th scope="col">Course Credit</th>
-                                                    <th scope="col">Actions</th>
+                                                    <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -98,11 +109,7 @@ function Courses() {
                                                             <td>{item.name}</td>
                                                             <td>{item.course_credit}</td>
                                                             <td id="icon">
-                                                                <button type="button" data-bs-toggle="modal" data-bs-target="#studentView">
-                                                                    <i class="far fa-eye" id="bars"></i>
-                                                                </button>
-
-                                                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                                                <button type="button" onClick={() => selectCourse(item.id)} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                                                     <i className="fas fa-edit" id="edit"></i>
                                                                 </button>
                                                             </td>
@@ -113,6 +120,51 @@ function Courses() {
                                                 }
                                             </tbody>
                                         </table>
+                                    </div>
+                                </div>
+                                {/* Model edit student */}
+                                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div className="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                        <div className="modal-content">
+                                            <div className="modal-header">
+                                                <h5 className="modal-title" id="staticBackdropLabel">Edit Student Info</h5>
+                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div className="modal-body">
+                                                <form className="row g-3">
+                                                    <div className="col-md-6">
+                                                        <label for="inputEmail4" className="form-label">Course Code</label>
+                                                        <input type="text" value={course_code} onChange={(event) => setCourse_code(event.target.value)} className="form-control" id="inputEmail4" />
+                                                        <div id="emailHelp" class="form-text">Edit Course Code here.</div>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <label for="inputEmail4" className="form-label">Course Name</label>
+                                                        <input type="text" value={name} onChange={(event) => setName(event.target.value)} className="form-control" id="inputEmail4" />
+                                                        <div id="emailHelp" class="form-text">Edit Course Name here.</div>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <label for="inputEmail4" className="form-label">Course Credit</label>
+                                                        <input type="email" value={course_credit} onChange={(event) => setCourse_credit(event.target.value)} className="form-control" id="inputEmail4" />
+                                                        <div id="emailHelp" class="form-text">Edit Course Credit here.</div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div className="modal-footer">
+                                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button id="student_info_update_btn" type="button" data-bs-dismiss="modal" className="btn">Update</button>
+                                                <ToastContainer
+                                                    position="top-right"
+                                                    autoClose={5000}
+                                                    hideProgressBar={false}
+                                                    newestOnTop={false}
+                                                    closeOnClick
+                                                    rtl={false}
+                                                    pauseOnFocusLoss
+                                                    draggable
+                                                    pauseOnHover
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
