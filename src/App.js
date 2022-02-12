@@ -18,6 +18,7 @@ import StudentNoticeBord from './Components/StudentNoticeBord';
 import TeacherList from './Components/TeacherList';
 import AddTeacher from './Components/AddTeacher';
 import AdminClassAndRoom from './Components/AdminClassAndRoom';
+import Courses from './Components/Courses';
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/TeacherList" element={<TeacherList/>}/>
           <Route exact path="/AddTeacher" element={<AddTeacher/>}/>
           <Route exact path="/AdminClassAndRoom" element={<AdminClassAndRoom/>}/>
+          <Route exact path="/Courses" element={<Courses/>}/>
         </Routes>
       </Router>
     </div>
